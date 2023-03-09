@@ -1,0 +1,324 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<header class="section-header">
+    <section class="header-main border-bottom">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xl-2 col-lg-3 col-md-12">
+                    <a href="https://localhost:44312/Home/Index" class="brand-wrap">
+                        <img class="logo" src="~/Content/images/logo.png">
+                    </a> <!-- brand-wrap.// -->
+                </div>
+                <div class="col-xl-6 col-lg-5 col-md-6">
+                    <form action="#" class="search-header">
+                        <div class="input-group w-100">
+                            <select class="custom-select border-right" name="category_name">
+                                <option value="">All type</option>
+                                <option value="codex">Special</option>
+                                <option value="comments">Only best</option>
+                                <option value="content">Latest</option>
+                            </select>
+                            <input type="text" class="form-control" placeholder="Search">
+
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="submit">
+                                    <i class="fa fa-search"></i> Search
+                                </button>
+                            </div>
+                        </div>
+                    </form> <!-- search-wrap .end// -->
+                </div> <!-- col.// -->
+                <div class="col-xl-4 col-lg-4 col-md-6">
+                    <div class="widgets-wrap float-md-right">
+                        <div class="widget-header mr-3">
+                            <a class="widget-view">
+                                <div class="icon-area">
+                                    <i class="fa fa-user"></i>
+                                    <span class="notify">3</span>
+                                </div>
+                                <small class="text">
+                                    @Html.ActionLink("Đăng nhập", "User", "Login", new { }, null)
+                                </small>
+                            </a>
+                        </div>
+                        <div class="widget-header mr-3">
+                            <a class="widget-view">
+                                <div class="icon-area">
+                                    <i class="fa fa-comment-dots"></i>
+                                    <span class="notify">1</span>
+                                </div>
+                                <small class="text">
+                                    @Html.ActionLink("Đăng kí", "User", "Register", new { }, null)
+                                </small>
+                            </a>
+                        </div>
+                        <div class="widget-header mr-3">
+                            <a class="widget-view">
+                                <div class="icon-area">
+                                    <i class="fa fa-store"></i>
+                                </div>
+                                <small class="text">
+                                    @Html.ActionLink("Đặt hàng", "Listing", "Grid", new { }, null)
+                                </small>
+                            </a>
+                        </div>
+                        <div class="widget-header">
+                            <a class="widget-view">
+                                <div class="icon-area">
+                                    <i class="fa fa-shopping-cart"></i>
+                                </div>
+                                <small class="text">  @Html.ActionLink("Giỏ hàng", "Shopping", "Cart", new { }, null) </small>
+                            </a>
+                        </div>
+                    </div> <!-- widgets-wrap.// -->
+                </div> <!-- col.// -->
+            </div> <!-- row.// -->
+        </div> <!-- container.// -->
+    </section> <!-- header-main .// -->
+
+    <nav class="navbar navbar-main navbar-expand-lg border-bottom">
+        <div class="container">
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav" aria-controls="main_nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="main_nav">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"> <i class="fa fa-bars text-muted mr-2"></i> Categories </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Machinery</a>
+                            <a class="dropdown-item" href="#">Electronics</a>
+                            <a class="dropdown-item" href="#">Home textile</a>
+                            <a class="dropdown-item" href="#">Home and kitchen</a>
+                            <a class="dropdown-item" href="#">Service and equipment</a>
+                            <a class="dropdown-item" href="#">Healthcare items</a>
+                            <a class="dropdown-item" href="#">Toys and Hobbies</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Trade shows</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Sell with us</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Demo pages</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="page-index.html">Main</a>
+                            <a class="dropdown-item" href="page-category.html">All category</a>
+                            <a class="dropdown-item" href="page-listing-large.html">Listing list</a>
+                            <a class="dropdown-item" href="page-listing-grid.html">Listing grid</a>
+                            <a class="dropdown-item" href="page-shopping-cart.html">Shopping cart</a>
+                            <a class="dropdown-item" href="page-detail-product.html">Item detail</a>
+                            <a class="dropdown-item" href="page-content.html">Info content</a>
+                            <a class="dropdown-item" href="page-user-login.html">Page login</a>
+                            <a class="dropdown-item" href="page-user-register.html">Page register</a>
+                            <a class="dropdown-item disabled text-muted" href="#">More components</a>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-md-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Get the app</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="http://example.com" data-toggle="dropdown">English</a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item" href="#">Russian</a>
+                            <a class="dropdown-item" href="#">French</a>
+                            <a class="dropdown-item" href="#">Spanish</a>
+                            <a class="dropdown-item" href="#">Chinese</a>
+                        </div>
+                    </li>
+                </ul>
+            </div> <!-- collapse .// --> <!-- collapse .// -->
+        </div> <!-- container .// -->
+    </nav>
+</header> <!-- section-header.// -->
+<!-- section-header.// -->
+<!-- ========================= SECTION CONTENT ========================= -->
+<section class="section-content padding-y">
+    <div class="container">
+
+        <nav class="row">
+            <div class="col-md-3">
+
+                <div class="card card-category">
+                    <div class="img-wrap" style="background: #ffd7d7">
+                        <img src="~/Content/images/items/1.jpg">
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title"><a href="#">Summer shirts</a></h4>
+                        <ul class="list-menu">
+                            <li><a href="">Unisex T shirts</a></li>
+                            <li><a href="">Casual shirts</a></li>
+                            <li><a href="">Scherf Ice cream</a></li>
+                            <li><a href="">Another category</a></li>
+                            <li><a href="">Great items name</a></li>
+                            <li><a href="">Great items name</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div> <!-- col.// -->
+            <div class="col-md-3">
+                <div class="card card-category">
+                    <div class="img-wrap" style="background: #FFF68D">
+                        <img src="~/Content/images/items/2.jpg">
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title"><a href="#">Winter jackets</a></h4>
+                        <ul class="list-menu">
+                            <li><a href="">Leather jackets</a></li>
+                            <li><a href="">Men's jackets</a></li>
+                            <li><a href="">Heating battery clothes</a></li>
+                            <li><a href="">Jeans jackets</a></li>
+                            <li><a href="">Great items name</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div> <!-- col.// -->
+            <div class="col-md-3">
+                <div class="card card-category">
+                    <div class="img-wrap" style="background: #bcffb8">
+                        <img src="~/Content/images/items/3.jpg">
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title"><a href="#">Shorts</a></h4>
+                        <ul class="list-menu">
+                            <li><a href="">Jeans shorts</a></li>
+                            <li><a href="">Swimming shorts</a></li>
+                            <li><a href="">Another some shorts</a></li>
+                            <li><a href="">Another category</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div> <!-- col.// -->
+            <div class="col-md-3">
+                <div class="card card-category">
+                    <div class="img-wrap" style="background: #c9fff3">
+                        <img src="~/Content/images/items/4.jpg">
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title"><a href="#">Travel bags </a></h4>
+                        <ul class="list-menu">
+                            <li><a href="">Leather bags</a></li>
+                            <li><a href="">Cook & Hold ovens</a></li>
+                            <li><a href="">Scherf Ice cream</a></li>
+                            <li><a href="">Another category</a></li>
+                            <li><a href="">Great items name</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div> <!-- col.// -->
+            <div class="col-md-3">
+                <div class="card card-category">
+                    <a href="#" class="img-wrap" style="background: #ddffeb">
+                        <img src="~/Content/images/items/5.jpg">
+                    </a>
+                    <div class="card-body">
+                        <h4 class="card-title"><a href="#">Great items</a></h4>
+                        <ul class="list-menu">
+                            <li><a href="">Combi steamers</a></li>
+                            <li><a href="">Cook & Hold ovens</a></li>
+                            <li><a href="">Scherf Ice cream</a></li>
+                            <li><a href="">Another category</a></li>
+                            <li><a href="">Great items name</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div> <!-- col.// -->
+            <div class="col-md-3">
+                <div class="card card-category">
+                    <a href="#" class="img-wrap" style="background: #dee4ff">
+                        <img src="~/Content/images/items/6.jpg">
+                    </a>
+                    <div class="card-body">
+                        <h4 class="card-title"><a href="#">Kitchen furniture</a></h4>
+                        <ul class="list-menu">
+                            <li><a href="">Combi steamers</a></li>
+                            <li><a href="">Cook & Hold ovens</a></li>
+                            <li><a href="">Scherf Ice cream</a></li>
+                            <li><a href="">Another category</a></li>
+                            <li><a href="">Great items name</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div> <!-- col.// -->
+            <div class="col-md-3">
+                <div class="card card-category">
+                    <a href="#" class="img-wrap" style="background: #ddffeb">
+                        <img src="~/Content/images/items/2.jpg">
+                    </a>
+                    <div class="card-body">
+                        <h4 class="card-title"><a href="#">Great items</a></h4>
+                        <ul class="list-menu">
+                            <li><a href="">Combi steamers</a></li>
+                            <li><a href="">Cook & Hold ovens</a></li>
+                            <li><a href="">Scherf Ice cream</a></li>
+                            <li><a href="">Another category</a></li>
+                            <li><a href="">Great items name</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div> <!-- col.// -->
+            <div class="col-md-3">
+                <div class="card card-category">
+                    <a href="#" class="img-wrap" style="background: #dee4ff">
+                        <img src="~/Content/images/items/1.jpg">
+                    </a>
+                    <div class="card-body">
+                        <h4 class="card-title"><a href="#">Other clothes</a></h4>
+                        <ul class="list-menu">
+                            <li><a href="">Jeans shorts</a></li>
+                            <li><a href="">Cook & Hold ovens</a></li>
+                            <li><a href="">Scherf Ice cream</a></li>
+                            <li><a href="">Another category</a></li>
+                            <li><a href="">Great items name</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div> <!-- col.// -->
+        </nav> <!-- row.// -->
+
+
+    </div> <!-- container .//  -->
+</section>
+<!-- ========================= SECTION CONTENT END// ========================= -->
+<!-- ========================= SECTION SUBSCRIBE  ========================= -->
+<section class="padding-y-lg bg-light border-top">
+    <div class="container">
+
+        <p class="pb-2 text-center">Delivering the latest product trends and industry news straight to your inbox</p>
+
+        <div class="row justify-content-md-center">
+            <div class="col-lg-4 col-sm-6">
+                <form class="form-row">
+                    <div class="col-8">
+                        <input class="form-control" placeholder="Your Email" type="email">
+                    </div> <!-- col.// -->
+                    <div class="col-4">
+                        <button type="submit" class="btn btn-block btn-warning"> <i class="fa fa-envelope"></i> Subscribe </button>
+                    </div> <!-- col.// -->
+                </form>
+                <small class="form-text">We’ll never share your email address with a third-party. </small>
+            </div> <!-- col-md-6.// -->
+        </div>
+
+
+    </div>
+</section>
+<!-- ========================= SECTION SUBSCRIBE END// ========================= -->
+<!-- ========================= FOOTER ========================= -->
+<footer class="section-footer bg-secondary">
