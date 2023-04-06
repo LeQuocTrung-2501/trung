@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'D:\Destop\le-trung\LeQuocTrung_Web\Webbanhang\Context\dbModel.edmx'. 
+﻿// T4 code generation is enabled for model 'D:\Destop\TranThanhLoc_Webbanghang_2120110087\TranThanhLoc_Webbanghang_2120110087\Webbanhang\Context\dbModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

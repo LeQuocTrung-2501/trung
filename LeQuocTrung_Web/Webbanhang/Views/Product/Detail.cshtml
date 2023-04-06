@@ -1,20 +1,45 @@
-﻿@model Webbanhang.Context.Product 
+﻿@model  Webbanhang.Context.Product
 @{
     ViewBag.Title = "Detail";
 }
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-
-
+<script type="text/javascript">
+    $(function () {
+        $("#addtocart").click(function () {
+            var model = {};
+            //lấy id sản phẩm
+            model.Id = @Model.Id;
+            // lấy số lượng đặt hàng
+            model.Quantity = $("#ipQuantity").val();
+            debugger;
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("AddToCart", "Cart")',
+                data:  JSON.stringify(model) ,
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function () {
+                    alert("Thêm giỏ hàng thành công!")
+                    $('#CartCount').text(@Session["count"] + 1);
+                },
+                error: function () {
+                    alert("Lỗi trong khi thêm vào giỏ hàng!");
+                }
+            });
+            return false;
+        });
+    });
+</script>
 <header class="section-header">
     <section class="header-main border-bottom">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-xl-2 col-lg-3 col-md-12">
-                    <a href="https://localhost:44312/" class="brand-wrap">
+                    <a href="@Url.Action("Index","Home", new {})" class="brand-wrap">
                         <img class="logo" src="~/Content/images/logo.png">
                     </a> <!-- brand-wrap.// -->
-
                 </div>
                 <div class="col-xl-6 col-lg-5 col-md-6">
                     <form action="#" class="search-header">
@@ -38,36 +63,37 @@
                 <div class="col-xl-4 col-lg-4 col-md-6">
                     <div class="widgets-wrap float-md-right">
                         <div class="widget-header mr-3">
-                            <a class="widget-view">
+                            <a href="@Url.Action("User","Login", new {})" class="widget-view">
                                 <div class="icon-area">
                                     <i class="fa fa-user"></i>
+                                    <span class="notify">3</span>
                                 </div>
-                                <small class="text"> @Html.ActionLink("Đăng nhập", "User", "Login", new { }, null) </small>
-                            </a>
-                        </div>
-
-                        <div class="widget-header mr-3">
-                            <a class="widget-view">
-                                <div class="icon-area">
-                                    <i class="fa fa-user"></i>
-                                </div>
-                                <small class="text">@Html.ActionLink("Đăng Ký", "User", "Register", new { }, null) </small>
+                                <small class="text"> Đăng nhập </small>
                             </a>
                         </div>
                         <div class="widget-header mr-3">
-                            <a class="widget-view">
+                            <a href="@Url.Action("User","Register", new {})" class="widget-view">
+                                <div class="icon-area">
+                                    <i class="fa fa-comment-dots"></i>
+                                    <span class="notify">1</span>
+                                </div>
+                                <small class="text"> Đăng ký </small>
+                            </a>
+                        </div>
+                        <div class="widget-header mr-3">
+                            <a href="@Url.Action("Listing","Grid", new {})" class="widget-view">
                                 <div class="icon-area">
                                     <i class="fa fa-store"></i>
                                 </div>
-                                <small class="text"> @Html.ActionLink("Đặt hàng", "Listing", "Grid", new { }, null) </small>
+                                <small class="text"> Đặt hàng </small>
                             </a>
                         </div>
                         <div class="widget-header">
-                            <a class="widget-view">
+                            <a href="@Url.Action("Index","Cart", new {})" class="widget-view">
                                 <div class="icon-area">
                                     <i class="fa fa-shopping-cart"></i>
                                 </div>
-                                <small class="text">@Html.ActionLink("Giỏ hàng", "Shopping", "Cart", new { }, null)</small>
+                                <small class="text"> Giỏ hàng </small>
                             </a>
                         </div>
                     </div> <!-- widgets-wrap.// -->
@@ -76,7 +102,6 @@
         </div> <!-- container.// -->
     </section> <!-- header-main .// -->
 
-
     <nav class="navbar navbar-main navbar-expand-lg border-bottom">
         <div class="container">
 
@@ -84,11 +109,10 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-
             <div class="collapse navbar-collapse" id="main_nav">
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href=""> <i class="fa fa-bars text-muted mr-2"></i> Categories </a>
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"> <i class="fa fa-bars text-muted mr-2"></i> Categories </a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="#">Machinery</a>
                             <a class="dropdown-item" href="#">Electronics</a>
@@ -155,7 +179,7 @@
                 <div class="card">
                     <article class="gallery-wrap">
                         <div class="img-big-wrap">
-                            <div> <a href="#"><img src="~/Content/images/items/@Model.Avatar"></a></div>
+                            <div> <a href="#"><img src="~/Content/images/items/@Model.Avartar"></a></div>
                         </div> <!-- slider-product.// -->
                         <div class="thumbs-wrap">
                             <a href="#" class="item-thumb"> <img src="~/Content/images/items/15.jpg"></a>
@@ -193,7 +217,10 @@
                         <span class="text-muted">USD 562.65 incl. VAT</span>
                     </div> <!-- price-detail-wrap .// -->
 
-                    <p>@Model.ShortDes</p>
+                    <p>
+
+                        @Model.ShortDes
+                    </p>
 
 
                     <dl class="row">
@@ -216,21 +243,13 @@
                     <div class="form-row  mt-4">
                         <div class="form-group col-md flex-grow-0">
                             <div class="input-group mb-3 input-spinner">
-                                <div class="input-group-prepend">
-                                    <button class="btn btn-light" type="button" id="button-plus"> + </button>
-                                </div>
-                                <input type="text" class="form-control" value="1">
-                                <div class="input-group-append">
-                                    <button class="btn btn-light" type="button" id="button-minus"> &minus; </button>
-                                </div>
+                                <input type="text" id="ipQuantity" class="form-control" value="1">
                             </div>
                         </div> <!-- col.// -->
                         <div class="form-group col-md">
-                            <a href="https://localhost:44312/Cart/Shopping" class="btn  btn-primary">
-                                <i class="fas fa-shopping-cart"></i> <span class="text">Add to cart</span>
-                            </a>
-                            <a href="#" class="btn btn-light">
-                                <i class="fas fa-envelope"></i> <span class="text">Contact supplier</span>
+                            <a href="# " id="addtocart" class="btn  btn-primary">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span class="text" h>Thêm vào giỏ hàng</span>
                             </a>
                         </div> <!-- col.// -->
                     </div> <!-- row.// -->
@@ -251,7 +270,9 @@
         <div class="row">
             <div class="col-md-8">
                 <h5 class="title-description">Description</h5>
-               @Model.FullDescription
+                @Model.FullDescription
+
+
             </div> <!-- col.// -->
 
             <aside class="col-md-4">
@@ -272,7 +293,7 @@
 
 
                     <article class="media mb-3">
-                        <a href="#"><img class="img-sm mr-3" src="~/Content/images/posts/3.jpg"></a>
+                        <a href="#"><img class="img-sm mr-3" src="~/Content/images/posts/@Model.Avartar"></a>
                         <div class="media-body">
                             <h6 class="mt-0"><a href="#">How to use this item</a></h6>
                             <p class="mb-2"> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin </p>

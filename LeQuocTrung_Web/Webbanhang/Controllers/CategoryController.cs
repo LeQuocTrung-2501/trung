@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
 using Webbanhang.Context;
 
@@ -9,16 +6,17 @@ namespace Webbanhang.Controllers
 {
     public class CategoryController : Controller
     {
-        webbanhangEntities objwbhEntities = new webbanhangEntities();
+        trung_webEntities1 objtrung_webEntities = new trung_webEntities1();
         // GET: Category
         public ActionResult Index()
         {
-            var lstCategory = objwbhEntities.Categories.ToList();
+            var lstCategory = objtrung_webEntities.Categories.ToList();
             return View(lstCategory);
         }
-        public ActionResult ProductCategory(int Id) {
-            var lstCategory = objwbhEntities.Products.Where(n=>n.Categoryid==Id).ToList();
-            return View(lstCategory);
+        public ActionResult ProductCategory(int Id)
+        {
+            var lstProduct = objtrung_webEntities.Products.Where(n => n.CategoryId == Id).ToList();
+            return View(lstProduct);
         }
     }
 }

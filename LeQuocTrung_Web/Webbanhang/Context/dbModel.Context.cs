@@ -13,10 +13,10 @@ namespace Webbanhang.Context
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class webbanhangEntities : DbContext
+    public partial class trung_webEntities1 : DbContext
     {
-        public webbanhangEntities()
-            : base("name=webbanhangEntities")
+        public trung_webEntities1()
+            : base("name=trung_webEntities1")
         {
         }
     

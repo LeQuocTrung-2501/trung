@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
 using Webbanhang.Context;
 
@@ -9,13 +6,12 @@ namespace Webbanhang.Controllers
 {
     public class ProductController : Controller
     {
-        webbanhangEntities objwbhEntities = new webbanhangEntities();
+        trung_webEntities1 objtrung_webEntities = new trung_webEntities1();
         // GET: Product
-        public ActionResult Detail(int id)
+        public ActionResult Detail(int Id)
         {
-            var objProduct = objwbhEntities.Products.Where(n => n.Id == id).FirstOrDefault();
+            var objProduct = objtrung_webEntities.Products.Where(n => n.Id == Id).FirstOrDefault();
             return View(objProduct);
-
         }
     }
 }
